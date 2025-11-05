@@ -200,6 +200,7 @@ pclomp::VoxelGridCovariance<PointT>::applyFilter (PointCloud &output)
         leaf.centroid += centroid;
       }
       ++leaf.nr_points;
+      leaf.pointList_.push_back(input_->points[cp]);
     }
   }
   // No distance filtering, process all data
@@ -260,6 +261,7 @@ pclomp::VoxelGridCovariance<PointT>::applyFilter (PointCloud &output)
         leaf.centroid += centroid;
       }
       ++leaf.nr_points;
+      leaf.pointList_.push_back(input_->points[cp]);
     }
   }
 
