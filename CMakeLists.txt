@@ -36,7 +36,7 @@ endif()
 ###########
 include_directories(include)
 
-add_library(ndt_omp STATIC
+add_library(ndt_omp SHARED
   src/pclomp/voxel_grid_covariance_omp.cpp
   src/pclomp/ndt_omp.cpp
   src/pclomp/gicp_omp.cpp
@@ -56,3 +56,10 @@ target_include_directories(
 )
 
 set(NDT_OMP_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+install(TARGETS ndt_omp
+  EXPORT export_ndt_omp
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
